@@ -4,28 +4,8 @@
     <div class="jumbotron">
       <div class="container">
         <h3>Aplication summary</h3>
-        <table class="table table-bordered">
-			<tr>
-				<th>ID Application</th>
-				<th>Owner</th>
-				<th>Business</th>
-				<th>Status</th>
-			</tr>
-			<tr>
-				<td>5465466765-2</td>
-				<td>{{owner}}</td>
-				<td>{{business}}</td>
-				{% if state == 'Declined'%}
-		        <td class="text-danger">DECLINED</td>
-		        {% end %}
-		        {% if state == 'Aproved'%}
-		        <td class="text-success">APROVED</td>
-		        {% end %}
-		        {% if state == 'Undecided'%}
-		        <td class="text-warning">IN PROCESS</td>
-		        {% end %}				
-			</tr>
-		</table>		
+        
       </div>
     </div>
+    <pre>{{response}}</pre>
 {% end %}
