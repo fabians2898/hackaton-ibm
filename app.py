@@ -13,7 +13,6 @@ class MainHandler(tornado.web.RequestHandler):
 
 class FormHandler(MainHandler):
     def get(self):
-        import pdb; pdb.set_trace()
         context = {}
         context['TITLE']='Application form'
         self.render('form.html', **context)
