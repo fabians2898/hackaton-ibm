@@ -13,6 +13,7 @@ class MainHandler(tornado.web.RequestHandler):
 
 class FormHandler(MainHandler):
     def get(self):
+        import pdb; pdb.set_trace()
         context = {}
         context['TITLE']='Application form'
         self.render('form.html', **context)
@@ -27,10 +28,10 @@ class FormHandler(MainHandler):
         #owner db insert
         #db = database.Connection("localhost", "mydatabase")
         #db.query("INSERT INTO owner (social_number, name, email, address, city,state,postal)
-        #VALUES (owner['social_number'], owner['name'], owner['email'], owner['address'], 
+        #VALUES (owner['social_number'], owner['name'], owner['email'], owner['address'],
         #owner['city'],owner['state'],owner['postal'])")
-        #db.close()       
-    
+        #db.close()
+
         amount = float(self.get_argument('amount'))
         if amount < 50000:
             state = 'Aproved'
@@ -43,7 +44,7 @@ class FormHandler(MainHandler):
         context['owner'] = owner['owner-name']
         context['business'] = business['business-name']
         context['TITLE'] = 'Summary'
-        self.render("summary.html", **context)      
+        self.render("summary.html", **context)
 
 
 class SummaryHandler(tornado.web.RequestHandler):
@@ -62,5 +63,5 @@ APP = tornado.web.Application([
 if __name__ == '__main__':
     print "server is running"
     http_server = tornado.httpserver.HTTPServer(APP)
-    http_server.listen(PORT)    
+    http_server.listen(PORT)
     tornado.ioloop.IOLoop.instance().start()
